@@ -695,10 +695,10 @@ book_words
 
 
 ```r
-book_words &lt;- book_words %&gt;%
+book_tfidf &lt;- book_words %&gt;%
 * bind_tf_idf(word, title, n)
 
-book_words
+book_tfidf
 ```
 
 ```
@@ -724,7 +724,7 @@ book_words
 
 
 ```r
-book_words %&gt;%
+book_tfidf %&gt;%
   arrange(-tf_idf)
 ```
 
@@ -751,7 +751,7 @@ book_words %&gt;%
 
 
 ```r
-book_words %&gt;%
+book_tfidf %&gt;%
   group_by(title) %&gt;%
   top_n(10) %&gt;%
   ungroup %&gt;%

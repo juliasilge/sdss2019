@@ -434,10 +434,10 @@ book_words
 .large[That's... super exciting???]
 
 ```{r}
-book_words <- book_words %>%
+book_tfidf <- book_words %>%
   bind_tf_idf(word, title, n)            #<<
 
-book_words
+book_tfidf
 ```
 
 ---
@@ -445,7 +445,7 @@ book_words
 ## Calculating tf-idf
 
 ```{r}
-book_words %>%
+book_tfidf %>%
   arrange(-tf_idf)
 ```
 
@@ -454,7 +454,7 @@ book_words %>%
 ## Calculating tf-idf
 
 ```{r, eval = FALSE}
-book_words %>%
+book_tfidf %>%
   group_by(title) %>%
   top_n(10) %>%
   ungroup %>%
@@ -469,7 +469,7 @@ book_words %>%
 ---
 
 ```{r, echo=FALSE, fig.height=4}
-book_words %>%
+book_tfidf %>%
   group_by(title) %>%
   top_n(10) %>%
   ungroup %>%
