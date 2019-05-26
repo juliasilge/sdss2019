@@ -622,7 +622,7 @@ sparse_words &lt;- tidy_books %&gt;%
   count(document, word, sort = TRUE) %&gt;%
 * cast_sparse(document, word, n)
 
-books_joined &lt;- data_frame(document = as.integer(rownames(sparse_words))) %&gt;%
+books_joined &lt;- tibble(document = as.integer(rownames(sparse_words))) %&gt;%
   left_join(books %&gt;%
               select(document, title))
 ```
